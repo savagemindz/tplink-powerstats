@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tplink-powerstats"
+version = "0.0.1"
+authors = [
+    {name = "Iain Cadd"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "aiohttp",
+    "asyncio",
+    "prometheus-client",
+    "python-kasa",
+    "tzdata",
+]
+description = "A prometheus exporter module that collects energy monitoring from tplink tapo and kasa devices"
+license = {text = "BSD-2-Clause"}
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.urls]
+repository = "https://github.com/savagemindz/tplink-powerstats"
