@@ -29,8 +29,6 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/arch: amd64
-      imagePullSecrets:
-        - name: regcred
       containers:
         - name: tplink-powerstats
           image: savagemindz/tplink-powerstats:latest
@@ -77,7 +75,7 @@ Search for `Kasa` inside grafana or install from https://grafana.com/grafana/das
 scrape_configs:
   - job_name: 'tplink-powerstats'
     static_configs:
-        - targets:
+      - targets:
         # IP of your smart plugs
         - 192.168.0.233
         - 192.168.0.234
