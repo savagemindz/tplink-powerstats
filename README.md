@@ -65,8 +65,7 @@ docker run -d -p 9101:9101 savagemindz/tplink-powerstats
 
 ## Grafana dashboard
 
-Search for `Kasa` inside grafana or install from https://grafana.com/grafana/dashboards/10957
-![img](https://grafana.com/api/dashboards/10957/images/6954/image)
+An included example grafana dashboard is in the grafana directory.
 
 ## Sample prometheus config
 
