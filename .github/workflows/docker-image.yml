@@ -6,7 +6,6 @@ on:
 env:
   APP: ${{ secrets.DOCKERHUB_USERNAME }}/tplink-powerstats
   TEST_TAG: ${{ github.ref_name }}.${{ github.sha }}
-  TPLINK_STARTUP_TEST: "true"
 
 jobs:
   docker:
@@ -32,7 +31,7 @@ jobs:
 
       - name: Test
         run: |
-          docker run --rm ${{ env.APP }}:${{ env.TEST_TAG }}
+          docker run -e --rm --env TPLINK_STARTUP_TEST="true" ${{ env.APP }}:${{ env.TEST_TAG }}
 
       - name: Build and push
         uses: docker/build-push-action@v6

@@ -1,5 +1,5 @@
 FROM alpine:3
-LABEL org.opencontainers.image.source github.com/savagemindz/tplink-powerstats
+LABEL org.opencontainers.image.source=github.com/savagemindz/tplink-powerstats
 RUN addgroup -S powerstats && adduser -S powerstats -G powerstats
 
 # hadolint ignore=DL3018
