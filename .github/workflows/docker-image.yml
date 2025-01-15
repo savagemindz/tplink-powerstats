@@ -26,11 +26,11 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           load: true
-          tags: ${{ env.APP }}:${{ env.GITHUB_REF_NAME }}.${{ env.GITHUB_SHA }}
+          tags: ${{ env.APP }}:${{ GITHUB_REF_NAME }}.${{ GITHUB_SHA }}
 
       - name: Test
         run: |
-          docker run --rm ${{ env.APP }}:${{ env.GITHUB_REF_NAME }}.${{ env.GITHUB_SHA }}
+          docker run --rm ${{ env.APP }}:${{ GITHUB_REF_NAME }}.${{ GITHUB_SHA }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
