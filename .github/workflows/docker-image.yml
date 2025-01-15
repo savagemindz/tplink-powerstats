@@ -6,6 +6,7 @@ on:
 env:
   APP: ${{ secrets.DOCKERHUB_USERNAME }}/tplink-powerstats
   TEST_TAG: ${{ github.ref_name }}.${{ github.sha }}
+  TPLINK_STARTUP_TEST: "true"
 
 jobs:
   docker:

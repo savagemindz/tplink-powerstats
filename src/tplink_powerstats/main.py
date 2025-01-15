@@ -1,5 +1,6 @@
 import asyncio
-import contextlib
+import sys
+import os
 
 from aiohttp import web
 from prometheus_client import (
@@ -38,12 +39,8 @@ async def main() -> None:
     site = web.TCPSite(runner, "0.0.0.0", 9101)  # noqa: S104
     await site.start()
 
+    if os.environ.get("TPLINK_STARTUP_TEST"):
+        sys.exit()
+
     done = asyncio.Event()
     await done.wait()   # Sleep forever
-
-
-if __name__ == "__main__":
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    with contextlib.suppress(KeyboardInterrupt):
-        asyncio.run(main())
