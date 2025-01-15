@@ -5,7 +5,6 @@ on:
 
 env:
   APP: ${{ secrets.DOCKERHUB_USERNAME }}/tplink-powerstats
-  TEST_TAG: ${{ env.GITHUB_REF_NAME }}.${{ env.GITHUB_SHA }}
 
 jobs:
   docker:
@@ -27,11 +26,11 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           load: true
-          tags: ${{ env.APP }}:${{ env.TEST_TAG }}
+          tags: ${{ env.APP }}:${{ env.GITHUB_REF_NAME }}.${{ env.GITHUB_SHA }}
 
       - name: Test
         run: |
-          docker run --rm ${{ env.APP }}:${{ env.TEST_TAG }}
+          docker run --rm ${{ env.APP }}:${{ env.GITHUB_REF_NAME }}.${{ env.GITHUB_SHA }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
